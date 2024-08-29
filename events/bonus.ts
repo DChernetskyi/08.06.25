@@ -135,7 +135,9 @@ const endDate: string = `${year}-${month}-${day} ${hoursEnd}:${minutes}:00`;
 
     const authDataBonus = getAuthData();
     const userIdInt = Number(authDataBonus.userId)
-    const addUserToCampaign = await request.post(`https://prewager-de1.betinvest.xyz/internal/user-sources/user/create`,{
+
+
+    const addUserToCampaign3 = await request.post(`https://prewager-de1.betinvest.xyz/internal/user-sources/user/create`,{
         headers: {
             'x-staff-id': '1234',
             'x-staff-partner-id': '58'
@@ -149,16 +151,8 @@ const endDate: string = `${year}-${month}-${day} ${hoursEnd}:${minutes}:00`;
           }
     })
 
-    await new Promise(resolve => setTimeout(resolve, 75000));
-    const startBonus = await request.post(`https://prewager-de1.betinvest.xyz/public/campaigns/${bonusId}/activate`,{
-        headers: {
-            'X-USER-ID': authDataBonus.userId
-        },
-        data: {}
-    })
 
-
-    const cancelBonus = await request.post(`https://prewager-de1.betinvest.xyz/internal/users/${userIdInt}/campaigns/active/cancel`,{
+    const cancelBonusPlayr = await request.post(`https://prewager-de1.betinvest.xyz/internal/users/${userIdInt}/campaigns/active/cancel`,{
         data: {}
     })
 
@@ -195,6 +189,33 @@ const endDate: string = `${year}-${month}-${day} ${hoursEnd}:${minutes}:00`;
           }
           
     })
+
+
+
+    const addUserToCampaign = await request.post(`https://prewager-de1.betinvest.xyz/internal/user-sources/user/create`,{
+        headers: {
+            'x-staff-id': '1234',
+            'x-staff-partner-id': '58'
+        },
+        data: {
+            "userId": userIdInt,
+            "campaignId": bonusId,
+            "currency": "UAH",
+            "bonusAmount": 100,
+            "staffId": 432
+          }
+    })
+
+    await new Promise(resolve => setTimeout(resolve, 75000));
+    const startBonus = await request.post(`https://prewager-de1.betinvest.xyz/public/campaigns/${bonusId}/activate`,{
+        headers: {
+            'X-USER-ID': authDataBonus.userId
+        },
+        data: {}
+    })
+
+
+    
 
 
 

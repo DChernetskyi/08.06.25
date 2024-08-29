@@ -20,7 +20,9 @@ test('event bonus', async ({request}) => {
     test.setTimeout(90000);
     const bonusIvent = await getBonusIvent(request)
     //proposed
-    //Wagering
     //Cancel by Player
     //Cancel by Manager
+    //Wagering
+    //
+    //
 })
